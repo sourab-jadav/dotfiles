@@ -1,0 +1,97 @@
+fzf
+xprop
+xinput
+$XDG_CONFIG_DIRS
+xfce-polkit
+ls -latrh
+rg
+find
+fd --alternative to find
+sed 's/replace_it/replace_this/' <filename>
+    SED TIP: if you find editing something that has
+    bunch of backshalshes like and you are getting annoyed to 
+    escape all the characters
+        -> you can acctually use any character as a delemeter just make sure
+           the character is not there in your text
+           EG: sed 's/https:\/\/example.com/https:\/\/sailor.org/' template.yaml
+               (or) 
+               sed 's#https://example.com#https//sailor.org#' template.yaml
+
+awk :
+    Perfect tool to extract the data out of 
+    EG: awk -F '\t' '{print $3 " | " $4}'   quotes.csv
+
+tail -f log
+
+echo 'hello,world' | sed 's/world/universe/'
+
+ls | xargs figlet -f digital
+    xarge take the content that you give it and split it into chunks and for each chunk
+    it will pass it as argument for each command you specify
+
+du -sh  ->prints the size of the directory
+
+ls | grep 'l' | xargs du -sh
+
+--------------using subshell
+
+echo "my current directory is : $(pwd)"
+
+-----redirection
+ls --help > ls-help.txt
+>> will append or it creates if it doesn't
+
+tr 'a-z' 'A-z' < template.yaml [ NOT UNDERSTOOD THIS ]
+
+fzf
+
+compgen -c --> to list all the command s | we have complete -C in fish
+
+compgen -c | fzf | xargs man *** -- when you create something like this you can
+                                    create aliases like
+                                    alias fman="campgen -c | fzf | xargs man"
+                                    dump this into your config file in your shell 
+
+
+==> this is great when working with the kubernates
+kubectl get pds -A --no-headers | fzf  awk '{print $2,$1}' | xargs -n 2 sh -c 'kubectl describe pod $0 -n $1'
+
+--finding the biggest files and the directories in the given path
+du -ah .  | sort -hr | head -n 10
+
+
+##if you find yourself running out of tomany node projects 
+find . -name 'node_modules' -type d | xargs du -sh  | sort -hr |
+fzf -m --header "Select which ones to delete" --preview 'cat $(direname {})/package.json'|
+awk '{print $2}' | xargs -r rm -rf
+
+    we use find to grab all the nodemodules starting at this subtree then we use
+    du with xargs to find what is the size of the each directory is |
+    then we sort it based on the size in reverse order |
+    casted into fuzzy find 
+
+
+    ctrl+z put the current process into the background
+    fg command to bring is back to the foreground
+
+!awk will run the most recent command beginning with your query
+
+
+<ctrl+x> <ctrl+e> to open the curren
+
+n <node management tool>
+
+qt5ct   --fixing dolphin look
+kvantum
+autotiling
+xfce-polkit
+ripgrep
+bat
+oh-my-zsh
+zsh -shell
+fd
+
+
+
+====================linux commands
+set -o   --> change the command line editing mode

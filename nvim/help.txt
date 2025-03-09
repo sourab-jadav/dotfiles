@@ -1,0 +1,195 @@
+code folding in nvim
+za --toggles the fold
+zM --collapse all the folds in the file
+zR --open all the folds in the file
+zE --eliminates all the folds in the file
+----------marker fold method
+set foldmethod=marker
+open up this fold{{{  do za here to close this fold
+    this is the marker fold method
+  }}}
+------------indent fold method
+set fold method = indent
+
+------------set fold method = syntax
+------------set fold method = diff 
+nvim -d file1 file2  --to open up the diff mode
+
+
+autopairs mappings and settings
+
+[
+    ()=>({
+         (foo bar)
+         })
+]}
+
+[
+    ()=>({
+         (foo bar)
+         })
+]
+
+[
+    ()=>({
+         (foo bar)
+         })
+]
+
+'"``"'
+'''
+"""
+```
+
+```
+"""
+'''
+{
+
+}
+\'
+
+i'm
+alt+p to toggle enable and disable plugin
+(lkjskdf lkjslkjdflskjf)    //place the cursor in b/w and type ) to jum
+
+//fast trapping
+"lkjskdf lkjslkjdflskjf"  //type alt+e to get this
+
+//fly mode
+
+[
+    ()=>({
+         (foo bar)   //place the cursor after r and type ] it will jump to the closing square bracket
+                    //to ignore the jump and actually place ] then type alt+b
+         })
+]
+
+
+
+--vim sourround by tpope
+
+ysiw'
+ds'
+cs`
+"`ys`" -->ysiW"
+function(val)  -->ysiwf
+function(val){
+
+}
+
+val1,val2,val3      -->yssf
+
+--sentence.
+'thelkjl ljlskjdfsld lkjdlsdjfoisl lkljdf.' ljsdflskjfie lkjsf  -->ysas'
+
+
+
+(       --yS2w(
+    # variant
+)
+
+-ySS --own line
+-yS
+
+
+
+--visual selection
+## ( VISUAL     //select the area and type S(
+    - `S` )
+
+
+--visual line mode
+(
+ lkjslkdjf
+ lkjsld
+)
+
+
+--block visual mode
+( -lkjsd flj )
+(  )
+( slkdjf lkjlkjdsdf )
+set virtualedit=block  -->it will actually select a block
+
+**giw(  --surround with no space
+**giw)  --surround with opening space)
+
+
+`),},],>` 
+`b,B,r,a`  aliases
+`',",``  only searched  on line
+
+
+html tags
+`<firtt>t</firtt>`  --ysiwt
+<something>hello</something>                    --cstt or cst' or cs't
+<h2><h1>TAGS</h2> </h1>              --ysWt
+find one tag side and do --dst 
+
+    for c-style coding
+
+shift+s +ctrl+}
+
+csttp>  --removes the attributes
+cstt h1 font=some  
+
+ys2w<C-T>t  surrounding with indentation
+
+<h1>        //ysipt  
+lkjfsldkjf
+</h1>
+
+:nmap <C-p> F(hdiwlds)  removes the function
+
+
+
+git command used so far
+I   --opens diff file in the terminal
+gp  --opens up the diff mode of the file
+o   --opens up the file
+C   --opens up the commit containing the current file
+A   
+-   
+]/  --collapsing the inline diff
+gu  --jumping to areas
+gs
+gp
+
+netrw
+removing files by ignoring the promt
+select the files and type a
+
+tabnew
+:tab split --open current buffer in a new tab
+:tab
+
+gx is a boon jump to the hyper link
+converting [[ ]] to {{}}
+0f[€ýavt;€ýa:s/\[/{/gf]€ýavt;€ýa:s/\]/}/g
+
+undo tree
+wundo file.undo
+rundo file.undo
+J to go up the tree
+K to go down the tree
+
+
+:norm
+: ! <command> "works really well with visual mode"
+gf and gx to open fils and links
+gi --it is useful let's say you edited something and you go through the doc
+    now you want to go back to the place where you were in insert mode you use gi
+
+encrypting files within vim
+:X --will ask you enter the encryption key
+
+
+--registers
+"0  - contins last yanked text
+""  - this reg contains text of op doing y,c,s,d,
+"1  - last this deleted goes in 1  --and every time you delete the contents get pushed down the stack 
+      with 1 being the top of the stack
+
+
+
