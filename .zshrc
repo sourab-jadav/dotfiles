@@ -71,12 +71,13 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git zsh-autosuggestions zsh-syntax-highlighting zsh-z) 
-
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
+# Add ~/bin to the PATH
+export PATH="$HOME/bin:$PATH"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -120,11 +121,24 @@ log_git_repo() {
 # Overriding the cd command to include the logging function
 cd() {
     builtin cd "$@" && log_git_repo
+    pwd > ~/.last_dir
 }
 
 # Function to quickly navigate git repositories using fzf
-fzf_git_repos() {
+p() {
     local repo=$(cat ~/.git_repos_visited | fzf)
-    [ -n "$repo" ] && nvim "$repo"
+    [ -n "$repo" ] && cd "$repo"
 }
+
+alias v=nvim
+alias hc=fuzzy_commands.sh
+alias ghe="gh copilot explain"
+alias ghs="gh copilot suggest -s"
+export VISUAL="nvim"
+# alias history="history | awk '{$1=""; print $0}' | sort | uniq"
+#
+#
+#
+# shellcheck shell=bash
+
 
