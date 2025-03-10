@@ -223,12 +223,13 @@ exec --no-startup-id volumeicon
     # CUSTOM KEYS START
     # --------------------
 exec --no-startup-id nm-applet
+exec --no-startup-id blueman-applet
 exec xdg-open "https://www.notion.so/b6ccda1cce8d431ca6d2c9016a078193?v=f11354939c944b81a370b0ad92efedfc"
 exec xdg-open "file:///home/sourab/SOURAB_BACKUP/sourab_backup/dsa/general%20pdfs/classic%20412/FINAL450.html"
-exec --no-startup-id pcmanfm
-exec --no-startup-id Telegram
-exec --no-startup-id volumeicon
-exec_always --no-startup-id picom 
+# exec --no-startup-id pcmanfm
+# exec --no-startup-id Telegram
+# exec --no-startup-id volumeicon
+# exec_always --no-startup-id picom 
 exec --no-startup-id /usr/lib/xfce-polkit/xfce-polkit
 exec --no-startup-id okular
 ### Autostart
@@ -237,9 +238,9 @@ for_window [title="(3) Let's code our own webserver in C. - YouTube - Google Chr
 bindsym $mod+Shift+S sticky enable
 # Suspend
 bindsym $mod+Shift+period exec systemctl suspend
-
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
+bindsym $mod+t exec xfce4-appfinder
 
 
 
